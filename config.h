@@ -64,6 +64,15 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function         format                  argument */
+    { cpu_perc,         "[ %s%%] ",            NULL    },
+    { ram_used,         "[ %sB/",              NULL    },
+    { ram_total,        "%sB] ",                NULL    },
+    { netspeed_tx,      "[ %8sB ↑",             "wlp0s20f3" },
+    { netspeed_rx,      "↓ %8sB ] ",            "wlp0s20f3" },
+    { run_command,      "[ %s%%] ",          "pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,'" },
+    { battery_perc,     "[ %s%% | ",           "BAT0"  },
+    { battery_state,    "%s] ",                 "BAT0"  },
+	{ datetime,         "[ %s]",               "%a %e %b %Y %k:%M" },
 };
+
