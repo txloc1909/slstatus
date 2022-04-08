@@ -68,11 +68,11 @@ static const struct arg args[] = {
     { cpu_perc,         "[ %s%%] ",            NULL    },
     { ram_used,         "[ %sB/",              NULL    },
     { ram_total,        "%sB] ",                NULL    },
-    { netspeed_tx,      "[ %8sB ↑",             "wlp0s20f3" },
-    { netspeed_rx,      "↓ %8sB ] ",            "wlp0s20f3" },
+    { netspeed_tx,      "[ %8sB ↑",             "ens33" },
+    { netspeed_rx,      "↓ %8sB ] ",            "ens33" },
     { run_command,      "[ %s%%] ",          "pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,'" },
-    { battery_perc,     "[ %s%% | ",           "BAT0"  },
-    { battery_state,    "%s] ",                 "BAT0"  },
+    { battery_perc,     "[ %s%% | ",           "BAT1"  },
+    { battery_state,    "%s] ",                 "BAT1"  },
 	{ datetime,         "[ %s]",               "%a %e %b %Y %k:%M" },
 };
 
