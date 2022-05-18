@@ -63,10 +63,12 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
+
+#define NET_INTERFACE "wlx14ebb6474923"
+#define BATTERY_NAME "BAT0"
+
 static const struct arg args[] = {
 	/* function         format                  argument */
-    { kernel_release,   "  %s ",              NULL    },
-
     { uptime,           "  %s ",              NULL    },
 
     { cpu_perc,         "  %2s%% ",           NULL    },
@@ -74,13 +76,15 @@ static const struct arg args[] = {
     { ram_used,         "  %sB/",             NULL    },
     { ram_total,        "%sB ",                 NULL    },
 
-    { netspeed_tx,      " %8sB ↑",             "ens33" },
-    { netspeed_rx,      "↓ %8sB ",              "ens33" },
+    { netspeed_tx,      " %8sB ↑",             NET_INTERFACE },
+    { netspeed_rx,      "↓ %8sB ",              NET_INTERFACE },
+    { wifi_essid,       "  %s ",              NET_INTERFACE },
+    { wifi_perc,        "ﴽ %s%% ",              NET_INTERFACE },
 
     { run_command,      "  %s%% ",            "pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,'" },
 
-    { battery_perc,     "  %s%% ",            "BAT1"  },
-    { battery_state,    "⚡ %s ",               "BAT1"  },
+    { battery_perc,     "  %s%% ",            BATTERY_NAME },
+    { battery_state,    "⚡ %s ",               BATTERY_NAME },
 
     { datetime,         "  %s ",             "%a %e %b %Y %k:%M" },
 };
