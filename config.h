@@ -70,23 +70,32 @@ static const char unknown_str[] = "n/a";
 
 static const struct arg args[] = {
 	/* function         format                  argument */
-    { uptime,           "  %s ",              NULL    },
+    { separator,        "%s ",                  ""     },
+    { uptime,           " %s ",                NULL    },
 
-    { cpu_perc,         "  %2s%% ",           NULL    },
+    { separator,        "%s ",                  ""     },
+    { cpu_perc,         " %2s%% ",             NULL    },
 
-    { ram_used,         "  %sB/",             NULL    },
+    { separator,        "%s ",                  ""     },
+    { ram_used,         " %sB/",               NULL    },
     { ram_total,        "%sB ",                 NULL    },
 
-    { netspeed_tx,      " %8sB ↑",             NET_INTERFACE },
+    { separator,        "%s ",                  ""     },
+    { netspeed_tx,      "%8sB ↑",               NET_INTERFACE },
     { netspeed_rx,      "↓ %8sB ",              NET_INTERFACE },
-    { wifi_essid,       "  %s ",              NET_INTERFACE },
+    { separator,        "%s ",                  ""     },
+    { wifi_essid,       " %s ",                NET_INTERFACE },
     { wifi_perc,        "ﴽ %s%% ",              NET_INTERFACE },
 
-    { run_command,      "  %s%% ",            "pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,'" },
-    //{ vol_perc,         "  %s%% ",            "hw:PCH" },
+    { separator,        "%s ",                  ""     },
+    { run_command,      " %s%% ",              "pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,'" },
+    //{ vol_perc,         " %s%% ",              "hw:PCH" },
 
-    { battery_perc,     "  %s%% ",            BATTERY_NAME },
+    { separator,        "%s ",                  ""     },
+    { battery_perc,     " %s%% ",              BATTERY_NAME },
     { battery_state,    "⚡ %s ",               BATTERY_NAME },
 
-    { datetime,         "  %s ",             "%a %e %b %Y %k:%M" },
+    { separator,        "%s ",                  ""     },
+    { datetime,         " %s ",                "%a %e %b %Y %k:%M" },
+    { separator,        "%s ",                  ""     },
 };
