@@ -60,6 +60,7 @@ static const char unknown_str[] = "n/a";
  * username            username of current user        NULL
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
  *                                                     NULL on OpenBSD
+ *                                                     /dev/snd/... on Linux
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
@@ -82,6 +83,7 @@ static const struct arg args[] = {
     { wifi_perc,        "ﴽ %s%% ",              NET_INTERFACE },
 
     { run_command,      "  %s%% ",            "pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,'" },
+    //{ vol_perc,         "  %s%% ",            "hw:PCH" },
 
     { battery_perc,     "  %s%% ",            BATTERY_NAME },
     { battery_state,    "⚡ %s ",               BATTERY_NAME },
